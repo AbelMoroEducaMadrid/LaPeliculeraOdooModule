@@ -1,0 +1,11 @@
+name,director,color,duracion,industria,fecha,sipnosis,genero
+"El Gran Escape","John Sturges",True,172,"Hollywood","1963-06-15","Un grupo de prisioneros de guerra escapan de un campo nazi en la Segunda Guerra Mundial.","Aventura"
+"El Pianista","Roman Polanski",True,150,"Hollywood","2002-12-25","La historia de un pianista polaco durante la ocupación nazi de Varsovia.","Drama"
+"Slumdog Millionaire","Danny Boyle",True,120,"Bollywood","2008-12-12","Un joven pobre de la India se convierte en un éxito en el programa de televisión '¿Quién quiere ser millonario?'.","Drama"
+"La Vida es Bella","Roberto Benigni",True,116,"Europea","1997-12-20","Un padre judío en un campo de concentración utiliza su imaginación para proteger a su hijo de los horrores del lugar.","Comedia"
+"El Laberinto del Fauno","Guillermo del Toro",True,118,"Europea","2006-05-27","Una niña en la postguerra española se enfrenta a una serie de pruebas en un mundo fantástico y oscuro.","Fantasía"
+"Matrix","The Wachowskis",True,136,"Hollywood","1999-03-31","Un hacker descubre que la realidad en la que vive es una simulación creada por máquinas.","Ciencia Ficción"
+"Avengers: Endgame","Anthony Russo, Joe Russo",True,181,"Hollywood","2019-04-26","Los superhéroes luchan por revertir los efectos de la invasión de Thanos y restaurar el orden en el universo.","Acción"
+"Ciudad de Dios","Fernando Meirelles",True,130,"Europea","2002-08-30","El crecimiento de la violencia en las favelas de Río de Janeiro a través de los ojos de dos jóvenes.","Crimen"
+"Nosferatu","F.W. Murnau",False,94,"Europea","1922-03-04","El primer gran clásico del cine de terror mudo sobre el vampiro Nosferatu.","Terror"
+"El Secreto de sus Ojos","Juan José Campanella",True,129,"Argentina","2009-08-13","Un oficial de justicia investiga un caso sin resolver mientras intenta superar su propio pasado amoroso.","Suspense"
