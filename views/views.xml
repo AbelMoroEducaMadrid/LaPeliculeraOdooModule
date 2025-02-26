@@ -1,7 +1,40 @@
 <odoo>
   <data>
 
-    <record model="ir.ui.view" id="lapeliculera.genero.tree">
+    <!-- Tree view para pelicula -->
+    <record model="ir.ui.view" id="lapeliculera.pelicula_tree">
+      <field name="name">lapeliculera.pelicula.tree</field>
+      <field name="model">lapeliculera.pelicula</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="director"/>
+          <field name="duracion"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view para pelicula -->
+    <record model="ir.ui.view" id="lapeliculera.pelicula_form">
+      <field name="name">lapeliculera.pelicula.form</field>
+      <field name="model">lapeliculera.pelicula</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="director"/>
+            <field name="duracion"/>
+            <field name="industria"/>
+            <field name="fecha"/>
+            <field name="genero"/>
+            <field name="sipnosis"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Tree view para genero -->
+    <record model="ir.ui.view" id="lapeliculera.genero_tree">
       <field name="name">lapeliculera.genero.tree</field>
       <field name="model">lapeliculera.genero</field>
       <field name="arch" type="xml">
@@ -12,7 +45,8 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="lapeliculera.genero.form">
+    <!-- Form view para genero -->
+    <record model="ir.ui.view" id="lapeliculera.genero_form">
       <field name="name">lapeliculera.genero.form</field>
       <field name="model">lapeliculera.genero</field>
       <field name="arch" type="xml">
