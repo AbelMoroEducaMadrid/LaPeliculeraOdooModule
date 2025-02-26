@@ -27,7 +27,7 @@
             <field name="industria"/>
             <field name="fecha"/>
             <field name="genero"/>
-            <field name="sipnosis"/>
+            <field name="sinopsis"/>
           </group>
         </form>
       </field>

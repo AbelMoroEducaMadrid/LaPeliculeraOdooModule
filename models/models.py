@@ -12,7 +12,7 @@ class lapeliculera_pelicula(models.Model):
     duracion = fields.Integer(String="Duración en minutos", help="Indica la duración de la película en minutos")
     industria = fields.Selection([('hollywood', 'Hollywood'), ('europea', 'Europea'), ('bollywood', 'Bollywood'), ('otra', 'Otra')], String="Industria", required=True, help="Indica la industria de la película")
     fecha = fields.Date(String="Fecha de estreno en españa", help="Indica la fecha de estreno en España de la película")
-    sipnosis = fields.Text(String="Sipnosis", help="Introduce la sipnosis de la película")
+    sinopsis = fields.Text(String="sinopsis", help="Introduce la sinopsis de la película")
     genero = fields.Many2one('lapeliculera.genero', String="Género", required=True, help="Indica el género de la película")
 
 class lapeliculera_genero(models.Model):
