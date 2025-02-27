@@ -1,0 +1,48 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.so
+*.dylib
+*.swp
+
+# Odoo
+*.log
+*.pid
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+*.dump
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Otras configuraciones locales
+*.bak
+*.swp
+*.swo
+
+# Archivos de compilación
+*.egg-info/
+dist/
+build/
+eggs/
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
