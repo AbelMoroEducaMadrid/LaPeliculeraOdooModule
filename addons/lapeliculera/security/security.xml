@@ -55,4 +55,26 @@
         <field name="perm_unlink" eval="0"/>
     </record>
 
+    <!-- Accesos para Jefe (Actores) -->
+    <record id="access_actores_jefe" model="ir.model.access">
+        <field name="name">acceso_actores_jefe</field>
+        <field name="model_id" ref="model_lapeliculera_actores"/>
+        <field name="group_id" ref="group_jefe"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Accesos para Becario (Actores) -->
+    <record id="access_actores_becario" model="ir.model.access">
+        <field name="name">acceso_actores_becario</field>
+        <field name="model_id" ref="model_lapeliculera_actores"/>
+        <field name="group_id" ref="group_becario"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
 </odoo>
