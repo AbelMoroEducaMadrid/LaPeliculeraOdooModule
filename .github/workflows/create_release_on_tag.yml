@@ -20,15 +20,12 @@ jobs:
       - name: Remove existing ZIPs
         run: rm -f lapeliculera_*.zip sample_data.zip
 
-      - name: Create ZIP of repository (excluding .git, .github, and sample_data)
+      - name: Create ZIP of repository (excluding .git and .github)
         run: |
-          zip -qr "lapeliculera_${VERSION}.zip" . -x ".git/**" ".github/**" "sample_data/**"
+          zip -qr "lapeliculera_${VERSION}.zip" . -x ".git/**" ".github/**"
 
-      - name: Create ZIP of sample_data (if exists)
-        run: |
-          if [ -d "sample_data" ]; then
-            zip -qr sample_data.zip sample_data
-          fi
+      - name: Create ZIP of sample_data (always)
+        run: zip -qr sample_data.zip sample_data || echo "No sample_data folder, but zip created"
 
       - name: Create GitHub Release
         id: create_release
@@ -40,4 +37,4 @@ jobs:
           prerelease: false
           files: |
             lapeliculera_${{ env.VERSION }}.zip
-            $(test -f sample_data.zip && echo "sample_data.zip" || echo "")
+            sample_data.zip
