@@ -1,7 +1,7 @@
 <odoo>
   <data>
 
-    <!-- Tree view para pelicula -->
+    <!-- Tree view para película -->
     <record model="ir.ui.view" id="lapeliculera.pelicula_tree">
       <field name="name">lapeliculera.pelicula.tree</field>
       <field name="model">lapeliculera.pelicula</field>
@@ -14,7 +14,7 @@
       </field>
     </record>
 
-    <!-- Form view para pelicula -->
+    <!-- Form view para película -->
     <record model="ir.ui.view" id="lapeliculera.pelicula_form">
       <field name="name">lapeliculera.pelicula.form</field>
       <field name="model">lapeliculera.pelicula</field>
@@ -34,7 +34,7 @@
       </field>
     </record>
 
-    <!-- Tree view para genero -->
+    <!-- Tree view para género -->
     <record model="ir.ui.view" id="lapeliculera.genero_tree">
       <field name="name">lapeliculera.genero.tree</field>
       <field name="model">lapeliculera.genero</field>
@@ -46,7 +46,7 @@
       </field>
     </record>
 
-    <!-- Form view para genero -->
+    <!-- Form view para género -->
     <record model="ir.ui.view" id="lapeliculera.genero_form">
       <field name="name">lapeliculera.genero.form</field>
       <field name="model">lapeliculera.genero</field>
@@ -55,6 +55,35 @@
           <group colspan="2" col="2">
             <field name="name"/>
             <field name="comentario"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- Tree view para reparto -->
+    <record model="ir.ui.view" id="lapeliculera.reparto_tree">
+      <field name="name">lapeliculera.reparto.tree</field>
+      <field name="model">lapeliculera.reparto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="nacionalidad"/>
+          <field name="fecha_nacimiento"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view para reparto -->
+    <record model="ir.ui.view" id="lapeliculera.reparto_form">
+      <field name="name">lapeliculera.reparto.form</field>
+      <field name="model">lapeliculera.reparto</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="foto" widget="image" class="oe_avatar"/>
+            <field name="nombre"/>
+            <field name="nacionalidad"/>
+            <field name="fecha_nacimiento"/>
           </group>
         </form>
       </field>
@@ -74,12 +103,20 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Acción de ventana para reparto -->
+    <record model="ir.actions.act_window" id="lapeliculera.reparto_action_window">
+      <field name="name">Reparto</field>
+      <field name="res_model">lapeliculera.reparto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Elementos de menú -->
     <menuitem id="lapeliculera.menu_root" name="La Peliculera" sequence="10"/>
 
     <!-- Categorías del menú -->
     <menuitem name="Género" id="lapeliculera.genero_menu" parent="lapeliculera.menu_root" action="lapeliculera.genero_action_window"/>
     <menuitem name="Película" id="lapeliculera.pelicula_menu" parent="lapeliculera.menu_root" action="lapeliculera.pelicula_action_window"/>
+    <menuitem name="Reparto" id="lapeliculera.reparto_menu" parent="lapeliculera.menu_root" action="lapeliculera.reparto_action_window"/>
 
   </data>
 </odoo>

@@ -30,4 +30,4 @@ class Reparto(models.Model):
     nombre = fields.Char(string="Nombre", required=True, help="Nombre del actor o actriz")
     nacionalidad = fields.Char(string="Nacionalidad", help="Nacionalidad del actor o actriz")
     fecha_nacimiento = fields.Date(string="Fecha de Nacimiento", help="Fecha de nacimiento del actor o actriz")
-    foto = fields.Binary(string="Foto", attachment=True, help="Sube la imagen del actor o actriz")
+    foto = fields.Binary(string="Foto", help="Sube la imagen del actor o actriz")
