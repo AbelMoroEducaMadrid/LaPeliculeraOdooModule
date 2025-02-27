@@ -1,0 +1,43 @@
+name: Create Release On Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    name: Create Release On Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Define version variable
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Remove existing ZIPs
+        run: rm -f lapeliculera_*.zip sample_data.zip
+
+      - name: Create ZIP of repository (excluding .git, .github, and sample_data)
+        run: |
+          zip -qr "lapeliculera_${VERSION}.zip" . -x ".git/**" ".github/**" "sample_data/**"
+
+      - name: Create ZIP of sample_data (if exists)
+        run: |
+          if [ -d "sample_data" ]; then
+            zip -qr sample_data.zip sample_data
+          fi
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: La Peliculera ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            lapeliculera_${{ env.VERSION }}.zip
+            $(test -f sample_data.zip && echo "sample_data.zip" || echo "")
