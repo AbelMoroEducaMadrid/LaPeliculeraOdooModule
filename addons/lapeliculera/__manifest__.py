@@ -23,6 +23,7 @@ Módulo para Odoo que permite la gestión eficiente de un videoclub, incluyendo 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/security.xml',
         'views/views.xml',
         'views/templates.xml',
         'reports/informe_pelicula.xml'
@@ -31,4 +32,5 @@ Módulo para Odoo que permite la gestión eficiente de un videoclub, incluyendo 
     'demo': [
         'demo/demo.xml',
     ],
+    'icon': 'lapeliculera/static/description/icon.png',
 }

@@ -26,8 +26,8 @@ jobs:
 
       - name: Create ZIP of La Peliculera (Docker version)
         run: |
-          zip -qr "La_Peliculera_Docker_${VERSION}.zip" . -x ".git/**" ".github/**" "addons/lapeliculera/sample_data/**"
-
+          zip -qr "La_Peliculera_Docker_${VERSION}.zip" . -x ".git/**" ".github/**" ".gitignore" "addons/lapeliculera/sample_data/**"
+          
       - name: Create ZIP of sample_data (always)
         run: zip -qr sample_data.zip addons/lapeliculera/sample_data || echo "No sample_data folder, but zip created"
 

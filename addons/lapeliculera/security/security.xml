@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Grupo Jefe -->
+    <record id="group_jefe" model="res.groups">
+        <field name="name">Jefe</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!-- Grupo Becario -->
+    <record id="group_becario" model="res.groups">
+        <field name="name">Becario</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!-- Accesos para Jefe (Película) -->
+    <record id="access_pelicula_jefe" model="ir.model.access">
+        <field name="name">acceso_pelicula_jefe</field>
+        <field name="model_id" ref="model_lapeliculera_pelicula"/>
+        <field name="group_id" ref="group_jefe"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Accesos para Jefe (Género) -->
+    <record id="access_genero_jefe" model="ir.model.access">
+        <field name="name">acceso_genero_jefe</field>
+        <field name="model_id" ref="model_lapeliculera_genero"/>
+        <field name="group_id" ref="group_jefe"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Accesos para Becario (Película) -->
+    <record id="access_pelicula_becario" model="ir.model.access">
+        <field name="name">acceso_pelicula_becario</field>
+        <field name="model_id" ref="model_lapeliculera_pelicula"/>
+        <field name="group_id" ref="group_becario"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Accesos para Becario (Género) -->
+    <record id="access_genero_becario" model="ir.model.access">
+        <field name="name">acceso_genero_becario</field>
+        <field name="model_id" ref="model_lapeliculera_genero"/>
+        <field name="group_id" ref="group_becario"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+</odoo>

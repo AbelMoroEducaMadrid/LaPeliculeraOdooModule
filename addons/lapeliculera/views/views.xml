@@ -61,14 +61,14 @@
 
     <!-- Acción de ventana para género -->
     <record model="ir.actions.act_window" id="lapeliculera.genero_action_window">
-      <field name="name">lapeliculera.genero.action_window</field>
+      <field name="name">Géneros</field>
       <field name="res_model">lapeliculera.genero</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Acción de ventana para película -->
     <record model="ir.actions.act_window" id="lapeliculera.pelicula_action_window">
-      <field name="name">lapeliculera.pelicula.action_window</field>
+      <field name="name">Películas</field>
       <field name="res_model">lapeliculera.pelicula</field>
       <field name="view_mode">tree,form</field>
     </record>
