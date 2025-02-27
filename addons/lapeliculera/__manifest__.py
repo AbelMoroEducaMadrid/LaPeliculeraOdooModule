@@ -32,4 +32,5 @@ Módulo para Odoo que permite la gestión eficiente de un videoclub, incluyendo 
     'demo': [
         'demo/demo.xml',
     ],
+    'icon': 'lapeliculera/static/description/icon.png',
 }
