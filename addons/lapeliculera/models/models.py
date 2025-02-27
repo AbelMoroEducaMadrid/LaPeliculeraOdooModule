@@ -14,6 +14,7 @@ class lapeliculera_pelicula(models.Model):
     fecha = fields.Date(String="Fecha de estreno en españa", help="Indica la fecha de estreno en España de la película")
     sinopsis = fields.Text(String="sinopsis", help="Introduce la sinopsis de la película")
     genero = fields.Many2one('lapeliculera.genero', String="Género", required=True, help="Indica el género de la película")
+    portada = fields.Binary(string="Portada", help="Sube la imagen de la película")
 
 class lapeliculera_genero(models.Model):
     _name = 'lapeliculera.genero'
