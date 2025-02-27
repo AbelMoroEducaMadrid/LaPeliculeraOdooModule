@@ -1,4 +1,4 @@
-name,director,color,duracion,industria,fecha,sinopsis,genero,reparto
+name,director,color,duracion,industria,fecha,sinopsis,genero
 Inception,Christopher Nolan,TRUE,148,hollywood,2010-07-16,"Un ladrón especializado en robar secretos a través del sueño es dado la tarea de implantar una idea en la mente de un CEO.",ficcion
 The Dark Knight,Christopher Nolan,FALSE,152,hollywood,2008-07-18,"Batman debe enfrentarse al Joker, un criminal que quiere sumergir a Gotham en el caos.",accion
 The Avengers,Joss Whedon,TRUE,143,hollywood,2012-04-26,"Un equipo de superhéroes se une para enfrentar una amenaza global.",accion
