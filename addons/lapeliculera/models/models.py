@@ -15,19 +15,23 @@ class lapeliculera_pelicula(models.Model):
     sinopsis = fields.Text(string="sinopsis", help="Introduce la sinopsis de la película")
     genero = fields.Many2one('lapeliculera.genero', string="Género", required=True, help="Indica el género de la película")
     portada = fields.Binary(string="Portada", help="Sube la imagen de la película")
+    reparto = fields.Many2many('lapeliculera.actores', string="Actores", help="Indica los actores que participan en la película")
 
 class lapeliculera_genero(models.Model):
     _name = 'lapeliculera.genero'
     _description = 'Género cinematográfico'
+    
     name = fields.Char(string="Género", required=True, help="Introduce el género cinematográfico")
     comentario = fields.Text(string="Comentarios", help="Introduce comentarios sobre el género") 
     pelicula = fields.One2many('lapeliculera.pelicula', 'genero', string="Películas", help="Indica las películas de este género")
     
-class Actores(models.Model):
+class lapeliculera_actores(models.Model):
     _name = 'lapeliculera.actores'
     _description = 'Actores'
+    _rec_name = 'nombre'
 
     nombre = fields.Char(string="Nombre", required=True, help="Nombre del actor o actriz")
     nacionalidad = fields.Char(string="Nacionalidad", help="Nacionalidad del actor o actriz")
     fecha_nacimiento = fields.Date(string="Fecha de Nacimiento", help="Fecha de nacimiento del actor o actriz")
     foto = fields.Binary(string="Foto", help="Sube la imagen del actor o actriz")
+    peliculas = fields.Many2many('lapeliculera.pelicula', string="Películas", help="Indica las películas en las que ha participado el actor o actriz")

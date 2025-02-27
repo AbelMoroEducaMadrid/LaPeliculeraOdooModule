@@ -24,11 +24,12 @@
             <field name="portada" widget="image" class="oe_avatar"/>
             <field name="name"/>
             <field name="director"/>
+            <field name="reparto" widget="many2many_tags"/>
             <field name="duracion"/>
             <field name="industria"/>
             <field name="fecha"/>
             <field name="genero"/>
-            <field name="sinopsis"/>
+            <field name="sinopsis"/>          
           </group>
         </form>
       </field>
