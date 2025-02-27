@@ -18,17 +18,18 @@ jobs:
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: Remove existing ZIPs
-        run: rm -f lapeliculera_*.zip sample_data.zip
+        run: rm -f La_Peliculera_*.zip La_Peliculera_Docker_*.zip sample_data.zip
 
-      - name: Create ZIP of repository (excluding .git, .github, and sample_data)
+      - name: Create ZIP of La Peliculera (portable Odoo version)
         run: |
-          zip -qr "lapeliculera_${VERSION}.zip" . -x ".git/**" ".github/**" "sample_data/**"
+          zip -qr "La_Peliculera_${VERSION}.zip" addons/lapeliculera
 
-      - name: Create ZIP of sample_data (if exists)
+      - name: Create ZIP of La Peliculera (Docker version)
         run: |
-          if [ -d "sample_data" ]; then
-            zip -qr sample_data.zip sample_data
-          fi
+          zip -qr "La_Peliculera_Docker_${VERSION}.zip" . -x ".git/**" ".github/**" "addons/lapeliculera/sample_data/**"
+
+      - name: Create ZIP of sample_data (always)
+        run: zip -qr sample_data.zip addons/lapeliculera/sample_data || echo "No sample_data folder, but zip created"
 
       - name: Create GitHub Release
         id: create_release
@@ -39,5 +40,6 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            lapeliculera_${{ env.VERSION }}.zip
-            $(test -f sample_data.zip && echo "sample_data.zip" || echo "")
+            La_Peliculera_${{ env.VERSION }}.zip
+            La_Peliculera_Docker_${{ env.VERSION }}.zip
+            sample_data.zip
