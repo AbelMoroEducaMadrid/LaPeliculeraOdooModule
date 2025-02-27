@@ -22,4 +22,12 @@ class lapeliculera_genero(models.Model):
     name = fields.Char(String="Género", required=True, help="Introduce el género cinematográfico")
     comentario = fields.Text(String="Comentarios", help="Introduce comentarios sobre el género") 
     pelicula = fields.One2many('lapeliculera.pelicula', 'genero', String="Películas", help="Indica las películas de este género")
+    
+class Reparto(models.Model):
+    _name = 'lapeliculera.reparto'
+    _description = 'Reparto'
 
+    nombre = fields.Char(string="Nombre", required=True, help="Nombre del actor o actriz")
+    nacionalidad = fields.Char(string="Nacionalidad", help="Nacionalidad del actor o actriz")
+    fecha_nacimiento = fields.Date(string="Fecha de Nacimiento", help="Fecha de nacimiento del actor o actriz")
+    foto = fields.Binary(string="Foto", attachment=True, help="Sube la imagen del actor o actriz")
