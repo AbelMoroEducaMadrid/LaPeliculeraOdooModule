@@ -7,9 +7,9 @@
       <field name="model">lapeliculera.pelicula</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="director"/>
-          <field name="duracion"/>
+          <field name="name" />
+          <field name="director" />
+          <field name="duracion" />
         </tree>
       </field>
     </record>
@@ -21,15 +21,15 @@
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
-            <field name="portada" widget="image" class="oe_avatar"/>
-            <field name="name"/>
-            <field name="director"/>
-            <field name="reparto" widget="many2many_tags"/>
-            <field name="duracion"/>
-            <field name="industria"/>
-            <field name="fecha"/>
-            <field name="genero"/>
-            <field name="sinopsis"/>          
+            <field name="portada" widget="image" class="oe_avatar" />
+            <field name="name" />
+            <field name="director" />
+            <field name="reparto" widget="many2many_tags" />
+            <field name="duracion" />
+            <field name="industria" />
+            <field name="fecha" />
+            <field name="genero" />
+            <field name="sinopsis" />
           </group>
         </form>
       </field>
@@ -41,8 +41,8 @@
       <field name="model">lapeliculera.genero</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="comentario"/>
+          <field name="name" />
+          <field name="comentario" />
         </tree>
       </field>
     </record>
@@ -54,8 +54,8 @@
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
-            <field name="name"/>
-            <field name="comentario"/>
+            <field name="name" />
+            <field name="comentario" />
           </group>
         </form>
       </field>
@@ -67,9 +67,9 @@
       <field name="model">lapeliculera.actores</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="nombre"/>
-          <field name="nacionalidad"/>
-          <field name="fecha_nacimiento"/>
+          <field name="nombre" />
+          <field name="nacionalidad" />
+          <field name="fecha_nacimiento" />
         </tree>
       </field>
     </record>
@@ -81,12 +81,42 @@
       <field name="arch" type="xml">
         <form>
           <group colspan="2" col="2">
-            <field name="foto" widget="image" class="oe_avatar"/>
-            <field name="nombre"/>
-            <field name="nacionalidad"/>
-            <field name="fecha_nacimiento"/>
+            <field name="foto" widget="image" class="oe_avatar" />
+            <field name="nombre" />
+            <field name="nacionalidad" />
+            <field name="fecha_nacimiento" />
           </group>
         </form>
+      </field>
+    </record>
+
+    <!-- Kanban view para actores -->
+    <record model="ir.ui.view" id="lapeliculera.actores_kanban">
+      <field name="name">lapeliculera.actores.kanban</field>
+      <field name="model">lapeliculera.actores</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_card">
+                <div class="o_kanban_image">
+                  <img
+                    t-att-src="'/web/image/lapeliculera.actores/' + record.id.raw_value + '/foto'"
+                    class="oe_kanban_avatar" />
+                </div>
+                <div class="o_kanban_details">
+                  <strong>
+                    <field name="nombre" />
+                  </strong>
+                  <br />
+                  <span>
+                    <field name="nacionalidad" />
+                  </span>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
       </field>
     </record>
 
@@ -108,16 +138,19 @@
     <record model="ir.actions.act_window" id="lapeliculera.actores_action_window">
       <field name="name">Actores</field>
       <field name="res_model">lapeliculera.actores</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <!-- Elementos de menú -->
-    <menuitem id="lapeliculera.menu_root" name="La Peliculera" sequence="10"/>
+    <menuitem id="lapeliculera.menu_root" name="La Peliculera" sequence="10" />
 
     <!-- Categorías del menú -->
-    <menuitem name="Género" id="lapeliculera.genero_menu" parent="lapeliculera.menu_root" action="lapeliculera.genero_action_window"/>
-    <menuitem name="Película" id="lapeliculera.pelicula_menu" parent="lapeliculera.menu_root" action="lapeliculera.pelicula_action_window"/>
-    <menuitem name="Actores" id="lapeliculera.actores_menu" parent="lapeliculera.menu_root" action="lapeliculera.actores_action_window"/>
+    <menuitem name="Género" id="lapeliculera.genero_menu" parent="lapeliculera.menu_root"
+      action="lapeliculera.genero_action_window" />
+    <menuitem name="Película" id="lapeliculera.pelicula_menu" parent="lapeliculera.menu_root"
+      action="lapeliculera.pelicula_action_window" />
+    <menuitem name="Actores" id="lapeliculera.actores_menu" parent="lapeliculera.menu_root"
+      action="lapeliculera.actores_action_window" />
 
   </data>
 </odoo>
