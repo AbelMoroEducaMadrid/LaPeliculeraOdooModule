@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Definición del nuevo informe -->
+    <record id="action_informe_detallado_pelicula" model="ir.actions.report">
+        <field name="name">Informe Detallado sobre Películas</field>
+        <field name="model">lapeliculera.pelicula</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lapeliculera.informe_detallado_pelicula_view</field>
+        <field name="report_file">lapeliculera.informe_detallado_pelicula_view</field>
+        <field name="print_report_name">'Informe Detallado %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_lapeliculera_pelicula" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Plantilla del informe detallado -->
+    <template id="informe_detallado_pelicula_view">
+        <t t-call="web.html_container">
+            <meta charset="UTF-8" />
+            <style>
+                body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #f4f4f4;
+                padding: 20px;
+                }
+                .page {
+                background: white;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+                h1 {
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 10px;
+                }
+                .section-title {
+                font-weight: bold;
+                margin-top: 10px;
+                color: #444;
+                }
+                .section-content {
+                margin-bottom: 15px;
+                }
+                .image-container {
+                text-align: center;
+                margin-bottom: 20px;
+                }
+                img {
+                max-width: 500px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+                .actor-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                }
+                .actor {
+                text-align: center;
+                width: 180px;
+                }
+                .actor img {
+                max-width: 100%;
+                border-radius: 50%;
+                }
+                .actor-name {
+                margin-top: 10px;
+                font-weight: bold;
+                }
+            </style>
+            <t t-foreach="docs" t-as="pelicula">
+                <div class="page">
+                    <h1 t-field="pelicula.name" />
+
+                    <div class="image-container">
+                        <t t-if="pelicula.portada">
+                            <img
+                                t-att-src="'data:image/png;base64,' + pelicula.portada.decode('utf-8')"
+                                alt="Portada de la película" />
+                        </t>
+                    </div>
+
+                    <div class="section-content">
+                        <span class="section-title">Director: </span>
+                        <span t-field="pelicula.director" />
+                    </div>
+                    <div class="section-content">
+                        <span class="section-title">Duración: </span>
+                        <span t-field="pelicula.duracion" />
+                    </div>
+                    <div class="section-content">
+                        <span class="section-title">Género: </span>
+                        <span t-field="pelicula.genero.name" />
+                    </div>
+                    <div class="section-content">
+                        <span class="section-title">Sinopsis: </span>
+                        <span t-field="pelicula.sinopsis" />
+                    </div>
+                    <div class="section-content">
+                        <span class="section-title">Industria: </span>
+                        <span t-field="pelicula.industria" />
+                    </div>
+                    <div class="section-content">
+                        <span class="section-title">Fecha de estreno: </span>
+                        <span t-field="pelicula.fecha" />
+                    </div>
+
+                    <!-- Sección de reparto de actores -->
+                    <div class="section-content">
+                        <span class="section-title">Reparto: </span>
+                        <div class="actor-container">
+                            <t t-foreach="pelicula.reparto" t-as="actor">
+                                <div class="actor">
+                                    <t t-if="actor.foto">
+                                        <img
+                                            t-att-src="'data:image/png;base64,' + actor.foto.decode('utf-8')"
+                                            alt="Foto de actor" />
+                                    </t>
+                                    <div class="actor-name">
+                                        <span t-field="actor.nombre" />
+                                    </div>
+                                    <div class="section-content">
+                                        <span class="section-title">Nacionalidad: </span>
+                                        <span t-field="actor.nacionalidad" />
+                                    </div>
+                                    <div class="section-content">
+                                        <span class="section-title">Fecha de Nacimiento: </span>
+                                        <span t-field="actor.fecha_nacimiento" />
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
