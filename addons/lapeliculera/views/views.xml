@@ -98,22 +98,26 @@
         <kanban>
           <templates>
             <t t-name="kanban-box">
-              <div class="oe_kanban_card">
-                <div class="o_kanban_image">
-                  <img
-                    t-att-src="'/web/image/lapeliculera.actores/' + record.id.raw_value + '/foto'"
-                    class="oe_kanban_avatar" />
+              <a
+                t-attf-href="/web#id=#{record.id.raw_value}&amp;model=lapeliculera.actores&amp;view_type=form"
+                class="oe_kanban_clickable">
+                <div class="oe_kanban_card">
+                  <div class="o_kanban_image">
+                    <img
+                      t-att-src="'/web/image/lapeliculera.actores/' + record.id.raw_value + '/foto'"
+                      class="oe_kanban_avatar" />
+                  </div>
+                  <div class="o_kanban_details">
+                    <strong>
+                      <field name="nombre" />
+                    </strong>
+                    <br />
+                    <span>
+                      <field name="nacionalidad" />
+                    </span>
+                  </div>
                 </div>
-                <div class="o_kanban_details">
-                  <strong>
-                    <field name="nombre" />
-                  </strong>
-                  <br />
-                  <span>
-                    <field name="nacionalidad" />
-                  </span>
-                </div>
-              </div>
+              </a>
             </t>
           </templates>
         </kanban>
